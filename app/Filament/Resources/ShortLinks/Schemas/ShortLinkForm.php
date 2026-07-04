@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ShortLinks\Schemas;
 
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class ShortLinkForm
@@ -10,7 +11,11 @@ class ShortLinkForm
     {
         return $schema
             ->components([
-                //
+                TextInput::make('original_url')
+                    ->label('Original URL')
+                    ->url()
+                    ->required()
+                    ->maxLength(2048),
             ]);
     }
 }
