@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Actions\ViewAction;
 
 class ShortLinksTable
 {
@@ -20,9 +21,11 @@ class ShortLinksTable
                     ->searchable()
                     ->limit(50),
 
-                TextColumn::make('short_code')
-                    ->label('Short Code')
-                    ->copyable(),
+                TextColumn::make('short_url')
+                    ->label('Short URL')
+                    ->copyable()
+                    ->url(fn ($record) => $record->short_url)
+                    ->openUrlInNewTab(),
 
                 TextColumn::make('clicks_count')
                     ->label('Clicks')
@@ -37,6 +40,7 @@ class ShortLinksTable
                 //
             ])
             ->recordActions([
+                ViewAction::make(),
                 DeleteAction::make(),
             ])
             ->toolbarActions([
