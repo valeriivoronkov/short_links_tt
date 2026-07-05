@@ -14,6 +14,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ShortLinks\RelationManagers\VisitsRelationManager;
 
 class ShortLinkResource extends Resource
 {
@@ -34,7 +35,7 @@ class ShortLinkResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            VisitsRelationManager::class,
         ];
     }
 
