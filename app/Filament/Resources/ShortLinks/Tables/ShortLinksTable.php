@@ -13,6 +13,7 @@ class ShortLinksTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->poll('6s')
             ->columns([
                 TextColumn::make('original_url')
                     ->label('Original URL')
