@@ -44,7 +44,7 @@ class ShortLinkPolicy
      */
     public function delete(User $user, ShortLink $shortLink): bool
     {
-        return false;
+        return $shortLink->user_id === $user->id;
     }
 
     /**
