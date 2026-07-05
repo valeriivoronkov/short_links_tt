@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\ShortLinks;
 
 use App\Filament\Resources\ShortLinks\Pages\CreateShortLink;
-use App\Filament\Resources\ShortLinks\Pages\EditShortLink;
 use App\Filament\Resources\ShortLinks\Pages\ListShortLinks;
+use App\Filament\Resources\ShortLinks\Pages\ViewShortLink;
 use App\Filament\Resources\ShortLinks\Schemas\ShortLinkForm;
 use App\Filament\Resources\ShortLinks\Tables\ShortLinksTable;
 use App\Models\ShortLink;
@@ -44,7 +44,7 @@ class ShortLinkResource extends Resource
         return [
             'index' => ListShortLinks::route('/'),
             'create' => CreateShortLink::route('/create'),
-            'edit' => EditShortLink::route('/{record}/edit'),
+            'view' => ViewShortLink::route('/{record}'),
         ];
     }
 
